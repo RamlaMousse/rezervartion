@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { saveAs } from 'file-saver';
 import { PDFDocument, StandardFonts } from 'pdf-lib';
 import jsonData from '../data.json';
+import './PaymentForm.css';
 
 const PaymentForm = ({ onPaymentSubmit }) => {
   const [name, setName] = useState('');
@@ -30,15 +31,15 @@ const PaymentForm = ({ onPaymentSubmit }) => {
 
     const pdfDoc = await PDFDocument.create();
 
-    
+
     const page = pdfDoc.addPage();
 
-    
+
     const font = await pdfDoc.embedFont(StandardFonts.Helvetica, 'Unicode');
     page.setFont(font);
     page.setFontSize(12);
 
-    
+
     const textContent = `
       Ad Soyad: ${paymentInfo.name}
       Kredi Karti No: ${paymentInfo.creditCard}
@@ -68,7 +69,7 @@ const PaymentForm = ({ onPaymentSubmit }) => {
   };
 
   return (
-    <div>
+    <div className="PaymentForm">
       <h2>Ödeme Bilgileri</h2>
       <form onSubmit={handleSubmit}>
         <fieldset>

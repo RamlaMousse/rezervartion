@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './FlightSearchForm.css';
 
 const FlightSearchForm = ({ onSearch }) => {
   const [fromCity, setFromCity] = useState('');
@@ -33,20 +34,28 @@ const FlightSearchForm = ({ onSearch }) => {
       <h2>Uçak Bileti Arama</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="fromCity">Nereden:</label>
-        <input
-          type="text"
+        <select
           id="fromCity"
           value={fromCity}
           onChange={(e) => setFromCity(e.target.value)}
-        />
-
+        >
+          <option value="">Şehir Seçin</option>
+          <option value="Istanbul">Istanbul</option>
+          <option value="Ankara">Ankara</option>
+          <option value="Izmir">Izmir</option>
+        </select>
+        
         <label htmlFor="toCity">Nereye:</label>
-        <input
-          type="text"
+        <select
           id="toCity"
           value={toCity}
           onChange={(e) => setToCity(e.target.value)}
-        />
+        >
+          <option value="">Şehir Seçin</option>
+          <option value="Istanbul">Istanbul</option>
+          <option value="Ankara">Ankara</option>
+          <option value="Izmir">Izmir</option>
+        </select>
 
         <label htmlFor="departureDate">Gidiş Tarihi:</label>
         <input

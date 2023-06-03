@@ -1,4 +1,5 @@
 import React from 'react';
+import './FlightList.css';
 
 const FlightList = ({ flights, onFlightSelect }) => {
   if (flights.length === 0) {
@@ -19,7 +20,9 @@ const FlightList = ({ flights, onFlightSelect }) => {
             <span>{flight.from}</span>
             <span>{flight.to}</span>
             <span>{flight.departureDate}</span>
+            <span>{flight.departureTime}</span>
             <span>{flight.returnDate}</span>
+            <span>{flight.returnTime}</span>
             <button onClick={() => onFlightSelect(flight)}>Seç</button>
           </li>
         ))}
